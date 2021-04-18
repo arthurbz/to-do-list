@@ -6,8 +6,8 @@ const pool = require("./db");
 app.use(cors());
 app.use(express.json());
 
-app.listen(5002, () => {
-    console.log("server started on port 5002");
+app.listen(5000, () => {
+    console.log("server started on port 5000");
 });
 
 app.post("/todos", async (req, res) => {
