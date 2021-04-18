@@ -1,5 +1,7 @@
 import React, { Fragment, useEffect, useState } from "react";
 
+import EditTodo from "./EditTodo";
+
 const ListTodos = () => {
     const [todos, setTodos] = useState([]);
 
@@ -7,7 +9,6 @@ const ListTodos = () => {
         try {
             const response = await fetch("http://localhost:5000/todos");
             const jsonData = await response.json();
-
             setTodos(jsonData);
         } catch (error) {
             console.error(error.message);
@@ -46,7 +47,7 @@ const ListTodos = () => {
                     {todos.map(todo => (
                         <tr key={todo.id}>
                             <td>{todo.description}</td>
-                            <td>Edit</td>
+                            <td><EditTodo todo={todo} /></td>
                             <td>
                                 <button
                                     className="btn btn-danger"
